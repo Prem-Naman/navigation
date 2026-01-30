@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/second_screen.dart';
 
 void main() {
   runApp(const Lolu());
@@ -10,7 +11,6 @@ class Lolu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(home: HomeScreen());
-    
   }
 }
 
@@ -19,11 +19,19 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: const Text('Home Screen'),
-    ),
-    body: Center(
-      child: ElevatedButton(onPressed: (){}, child:const Text('click me')
+    return Scaffold(
+      appBar: AppBar(title: const Text('Home Screen')),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const MyWidget()),
+            );
+          },
+          child: const Text('click me'),
+        ),
       ),
-    ),);
+    );
   }
 }
